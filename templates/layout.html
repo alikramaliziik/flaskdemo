@@ -1,23 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     {% block head %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-        <title>IT@JCU Flask Demo - {% block title %}Flask Demo{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            nav { margin-bottom: 20px; }
+            h2 { color: #333; }
+            .error { color: red; }
+        </style>
     {% endblock %}
 </head>
 <body>
-<div id="nav">
-    <a href="{{ url_for('home') }}">Home</a> |
-    <a href="{{ url_for('search') }}">Search</a>
-</div>
-<div id="content">
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a> |
+        <a href="{{ url_for('search') }}">Search</a> |
+        <a href="{{ url_for('about') }}">About</a>
+    </nav>
     {% block content %}{% endblock %}
-</div>
-<div id="footer">
     {% block footer %}
-        <p>IT@JCU Flask Demo by Lindsay Ward - <a href="http://github.com/lindsaymarkward/flaskdemo">Original source on GitHub</a>.</p>
+        <p>IT@JCU Flask Demo by Lindsay Ward - Original source on <a href="https://github.com/lindsaymarkward/flaskdemo">GitHub</a>.</p>
     {% endblock %}
-</div>
 </body>
 </html>
